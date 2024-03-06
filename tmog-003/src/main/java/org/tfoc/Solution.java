@@ -5,9 +5,17 @@ package org.tfoc;
  */
 public class Solution {
 
-    public Integer maxSubArray(Integer[] nums) {
+    public static int maxSubArray(int[] nums) {
+        int max = Integer.MIN_VALUE;
+        int[] sums = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+            for (int j = 0; j <= i; j++) {
+                sums[j] += num;
+                if (sums[j] > max) max = sums[j];
+            }
+        }
 
-        return null;
+        return max;
     }
-
 }
